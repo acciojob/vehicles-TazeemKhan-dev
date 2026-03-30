@@ -3,20 +3,19 @@ package com.driver;
 public class F1 extends Car {
 
     public F1(String name, boolean isManual) {
-        // name, wheels, doors, gears, isManual, type, seats
         super(name, 4, 2, 6, isManual, "F1", 1);
     }
 
     public void accelerate(int rate){
         int newSpeed = getCurrentSpeed() + rate;
 
-        if(newSpeed == 0) {
+        if(newSpeed <= 0) {
             stop();
             changeGear(1);
             return;
         }
 
-        if(newSpeed > 0 && newSpeed <= 50) {
+        if(newSpeed <= 50) {
             changeGear(1);
         } else if(newSpeed <= 100) {
             changeGear(2);
